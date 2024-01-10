@@ -5,7 +5,10 @@ if (!empty($_GET['email'])) {
     $success = false;
     $email = $_GET['email'];
     if (stripos($email, '.') !== false && stripos($email, '@') !== false) {
-        $success = true;
+        session_start();
+        $_SESSION['email'] = $email;
+        header('Location: thankyou.php');
+        die;
     }
 }
 ?>
