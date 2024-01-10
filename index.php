@@ -1,12 +1,6 @@
 <?php
-// verifica
-$success = false;
-if (!empty($_GET['email'])) {
-    $email = $_GET['email'];
-    if (stripos($email, '.') !== false && stripos($email, '@') !== false) {
-        $success = true;
-    }
-}
+//verifca email
+include __DIR__ . '/functions.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +32,7 @@ if (!empty($_GET['email'])) {
             <div class="alert alert-success w-50 m-auto" role="alert">
                 la mail contiene un punto e una chiocciola
             </div>
-        <?php else : ?>
+        <?php elseif($success === false) : ?>
             <div class="alert alert-danger w-50 m-auto" role="alert">
                 la mail NON contiene un punto e una chiocciola
             </div>
